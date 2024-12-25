@@ -59,3 +59,48 @@ body {
   font-size: 2.25rem;
   font-weight: 300;
 }
+.d-block{
+    border-radius: 1000px;
+
+    
+}
+
+img {
+    --s: 250px;   /* the size of the image */
+    --b: 8px;     /* the border thickness*/
+    --g: 14px;    /* the gap */
+    --c: #4ECDC4; /* the color */
+    
+    width: var(--s);
+    aspect-ratio: 1;
+    outline: calc(var(--s)/2) solid #0009;
+    outline-offset: calc(var(--s)/-2);
+    cursor: pointer;
+    transition: .3s;
+  }
+  img:hover {
+    outline: var(--b) solid var(--c);
+    outline-offset: var(--g);
+  }
+  
+  img + img {
+    border-radius: 50%;
+  }
+  .nav-pills {
+    --bs-nav-pills-border-radius: var(--bs-border-radius);
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #000;
+  }
+  .nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: #fff;
+    --bs-nav-link-hover-color: #000;
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
