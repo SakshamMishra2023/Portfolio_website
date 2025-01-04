@@ -4,6 +4,7 @@ h1 {
   font-style: normal;
   color: aliceblue;
 }
+
 .gradient-background {
   background: linear-gradient(300deg, #ce4ddc, #681868, #7b0cfb);
   background-size: 180% 180%;
@@ -68,7 +69,7 @@ body {
   font-weight: 300;
 }
 .d-block{
-  border-radius: 1000px;
+  border-radius:50px;
 }
 
 #prof {
@@ -413,8 +414,18 @@ input[type="checkbox"]{
 .carouselExampleCaptions{
   width: 75%;
   height: 500px;
-  box-sizing: border-box;
 }
+#Sub_heading{
+  color: #ffffff;
+  font-size: 54px;
+ 
+}
+/* Update footer text color */
+footer .nav-link,
+footer .text-body-secondary {
+  color: white !important;
+}
+
 
 
 
