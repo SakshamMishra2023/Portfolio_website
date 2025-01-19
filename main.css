@@ -5,6 +5,7 @@ h1 {
   color: aliceblue;
 }
 
+
 .gradient-background {
   background: linear-gradient(300deg, #ce4ddc, #681868, #7b0cfb);
   background-size: 180% 180%;
@@ -52,6 +53,7 @@ h1 {
   font-weight: 300;
   line-height: 1.2;
 }
+
 body {
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -69,7 +71,7 @@ body {
   font-weight: 300;
 }
 .d-block{
-  border-radius:50px;
+  border-radius:100px;
 }
 
 #prof {
@@ -93,6 +95,7 @@ body {
   #prof + #prof {
     border-radius: 50%;
   }
+  
   .nav-pills {
     --bs-nav-pills-border-radius: var(--bs-border-radius);
     --bs-nav-pills-link-active-color: #fff;
@@ -132,6 +135,7 @@ body {
 	font-size: calc(var(--itemWidth) / 7);
 	grid-row:  2 / 3;
 }
+
 .item:hover{
 	box-shadow: 
 		inset 0 0 0 transparent, 
@@ -141,6 +145,8 @@ body {
 		0 0 20px silver;
 	color: transparent;
 }
+
+
 section {
   --itemWidth: min(300px, 30vw);
   --itemWidthMinus: calc(-1 * var(--itemWidth));
@@ -166,7 +172,7 @@ section {
 	background-image: url(https://pbs.twimg.com/profile_images/1043218383141928961/i7P3LHYw_400x400.jpg);
 }
 .item > span {
-	width: 80%;
+	width: 100%;
 	user-select: none; -moz-user-select: none; -webkit-user-select: none;
 }
 h3{
@@ -205,15 +211,16 @@ h2{
   font-size: 48px;
 }
 
-ul {
+.main-nav-hover {
   position: relative;
+  
 }
-ul li {
+.main-nav-hover li {
   list-style: none;
   text-align: center;
 }
 
-ul li a {
+.main-nav-hover li a {
   color: #333;
   text-decoration: none;
   font-size: 3em;
@@ -222,14 +229,14 @@ ul li a {
   font-weight: 700;
   transition: 0.5s;
 }
-ul:hover li a {
+.main-nav-hover:hover li a {
   color: #0002;
 }
-ul li:hover a {
+.main-nav-hover li:hover a {
   color: #000;
   background: transparent;
 }
-ul li a:before {
+.main-nav-hover li a:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -248,7 +255,7 @@ ul li a:before {
   letter-spacing: 500px;
   transition: letter-spacing 0.5s, left 0.5s;
 }
-ul li a:hover:before {
+.main-nav-hover li a:hover:before {
   content: attr(data-text);
   opacity: 1;
   left: 50%;
@@ -256,24 +263,25 @@ ul li a:hover:before {
   width: 1800px;
   height: 1800px;
 }
-ul li:nth-child(6n + 1) a:before {
+.main-nav-hover li:nth-child(6n + 1) a:before {
   background: #0470fe;
 }
-ul li:nth-child(6n + 2) a:before {
+.main-nav-hover li:nth-child(6n + 2) a:before {
   background: #ff7675;
 }
-ul li:nth-child(6n + 3) a:before {
+.main-nav-hover li:nth-child(6n + 3) a:before {
   background: #1582fe;
 }
-ul li:nth-child(6n + 4) a:before {
+.main-nav-hover li:nth-child(6n + 4) a:before {
   background: #a29bfe;
 }
-ul li:nth-child(6n + 5) a:before {
+.main-nav-hover li:nth-child(6n + 5) a:before {
   background: #fd79a8;
 }
-ul li:nth-child(6n + 6) a:before {
+.main-nav-hover li:nth-child(6n + 6) a:before {
   background: #ce4ddc;
 }
+
 
 .wrapper{
   position: absolute;
@@ -285,9 +293,11 @@ ul li:nth-child(6n + 6) a:before {
   /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
  /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
   /* clip-path: circle(25px at calc(0% + 45px) 45px); */
-  background: #000;
+  background: #000000;
   clip-path: circle(25px at calc(100% - 45px) 45px);
   transition: all 0.3s ease-in-out;
+  z-index: 1;
+  
 }
 #active:checked ~ .wrapper{
   clip-path: circle(75%);
@@ -325,6 +335,7 @@ ul li:nth-child(6n + 6) a:before {
   transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
+  
 }
 .wrapper ul li{
   margin: 15px 0;
@@ -354,9 +365,45 @@ ul li:nth-child(6n + 6) a:before {
   top: -5%; /* if the font is 'Oswald'*/
   border-radius: 50px;
   transform: scaleY(0);
-  z-index: -1;
+  z-index: 4;
   animation: rotate 1.5s linear infinite;
   transition: transform 0.3s ease;
+}
+
+.profile-section {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.profile-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px; /* Slightly taller than the profile image */
+  background-image: url('./assets/1_GQih-F-GbZrv4ltyu09Olw.gif'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  opacity: 1; /* Adjust opacity to ensure profile content remains visible */
+  z-index: 0;
+}
+
+/* Update existing profile content positioning */
+.profile-section .px-4 {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: Add gradient overlay to the background */
+.profile-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
 }
 
 
@@ -369,7 +416,7 @@ input[type="checkbox"]{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 0;
   text-align: center;
   width: 100%;
   color: #202020;

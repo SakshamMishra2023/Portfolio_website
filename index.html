@@ -20,24 +20,26 @@
   
   
      
+  <div class="profile-section">
+    <div class="profile-background"></div>
     <div class="px-4 py-5 my-5 text-center">
-    <img  id = "prof" class="d-block mx-auto mb-4" src="assets/my_pic.jpg" alt="image here" width="900" height="400" >
-    <h1 class="display-5 fw-bold text-body-emphasis custom-color cursor typewriter-animation">Saksham Mishra</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Hi, Welcome to my portfolio Website. I am a web developer, IOT enthusiast with experiece in Game Development.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3" fdprocessedid="or37dd" >Primary button</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4" fdprocessedid="j4ywne">Secondary</button>
+      <img id="prof" class="d-block mx-auto mb-4" src="assets/face.png" alt="image here" width="900" height="400">
+      <h1 class="display-5 fw-bold text-body-emphasis custom-color cursor typewriter-animation">Saksham Mishra</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Hi, Welcome to my portfolio Website. I am a web developer, IOT enthusiast with experiece in Game Development.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3" fdprocessedid="or37dd">Primary button</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4" fdprocessedid="j4ywne">Secondary</button>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <input type="checkbox" id="active">
     <label for="active" class="menu-btn"><i class="fas fa-bars"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
     </svg></i></label>
     <div class="wrapper">
-      <ul>
+      <ul class="menu-hover-effect">
 <li><a href="#">Home</a></li>
 <li><a href="#">About</a></li>
 <li><a href="#">Services</a></li>
@@ -61,7 +63,7 @@
   </div>
   </div></div>
  
-  <ul>
+  <ul class="main-nav-hover">
     <li><a target="_blank" href="#" data-text="Home">Home</a></li>
     <li><a target="_blank" href="#" data-text="Blogs">Blogs</a></li>
     <li><a target="_blank" href="#" data-text="Coding">Coding</a></li>
@@ -79,7 +81,7 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./assets/main_screen.png" class="d-block w-100" alt="First slide">
+        <img src="./assets/main_screen.png" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"class="d-block w-100" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
           <h5>Angry Birds Dead Hour</h5>
           <p>A Lib-GDX Based Fan made spin-off of the original Angry Birds Game.
@@ -89,11 +91,11 @@
     <div class="carousel-item active">
       <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" src="./assets/co_PROJECT.png" data-holder-rendered="true">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h5>RISC-V Assembler and Simulator</h5>
+        <p>A custom made RISC V Assembler and Simulator written in C++ to convert RISC-V assembly code into machine code (binary instructions) for execution on a RISC-V processor.</p>
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item active">
       <img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="./assets/RFID.jpg" data-holder-rendered="true">
       <div class="carousel-caption d-none d-md-block">
         <h5>RFID Attendance System</h5>
@@ -112,7 +114,7 @@
 </div>
 
 
-  <section >
+  <section class="skills">
    
     <div class=item id ="nyt"> <span>Game Development</span></div>
     <div class=item id="wp"><span>IOT Projects</span></div>
@@ -122,11 +124,11 @@
 
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item" ><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item" ><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item" ><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item" ><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item" ><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
     </ul>
     <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
   </footer>
