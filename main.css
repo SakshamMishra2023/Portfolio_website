@@ -62,7 +62,7 @@ body {
   color:#fff;
   text-align: var(--bs-body-text-align);
   -webkit-text-size-adjust: 100%;
-  cursor: url('assets/pointer.png'), auto;
+  cursor: url('assets/icons8-cursor-60.png'), auto;
   display: grid;
   
 }
