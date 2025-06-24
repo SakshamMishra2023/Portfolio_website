@@ -9,7 +9,7 @@ h1 {
 .gradient-background {
   background: linear-gradient(300deg, #ce4ddc, #681868, #7b0cfb);
   background-size: 180% 180%;
-  animation: gradient-animation 12s ease infinite;
+  animation: gradient-animation 6s ease infinite;
 }
 .link-body-emphasis {
   color: RGB(255, 255, 255) !important;
@@ -188,6 +188,7 @@ body * { place-self: center;}
   
   --containerSide: 0.833%;
   padding: 0 var(--containerSide);
+  margin-top: 8rem;
 }
 .par1{
   
@@ -221,7 +222,7 @@ h2{
 }
 
 .main-nav-hover li a {
-  color: #333;
+  color: #fff;
   text-decoration: none;
   font-size: 3em;
   padding: 5px 20px;
@@ -471,6 +472,291 @@ input[type="checkbox"]{
 footer .nav-link,
 footer .text-body-secondary {
   color: white !important;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+h1 {
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: aliceblue;
+}
+
+/* Projects Section Styles */
+.projects-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-headline {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 3rem;
+  font-family: "Bebas Neue", serif;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.project-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-box:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-text {
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.project-text h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.project-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .projects-headline {
+    font-size: 3rem;
+  }
+  
+  .project-image {
+    height: 150px;
+  }
+}
+
+/* Blinking text animation with different colors */
+.blinking-text {
+  animation: blink-colors 0.8s infinite;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@keyframes blink-colors {
+  0% { color: #ff6b6b; }
+  16.66% { color: #4ecdc4; }
+  33.33% { color: #45b7d1; }
+  50% { color: #96ceb4; }
+  66.66% { color: #feca57; }
+  83.33% { color: #ff9ff3; }
+  100% { color: #ff6b6b; }
+}
+
+/* Skills Section Styles */
+.skills-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.skills-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-family: "Bebas Neue", serif;
+}
+
+.skills-question h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-family: "Bebas Neue", serif;
+}
+
+.skills-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.skill-option {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.skill-option:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-option.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+}
+
+.moving-pane-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.image-carousel {
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-carousel.active {
+  display: block;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc(200px * 10); /* More items for continuous flow */
+  animation: marquee-scroll 15s linear infinite;
+}
+
+.carousel-item {
+  flex: 0 0 200px;
+  margin: 20px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.carousel-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.item-content h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+  font-family: "Bebas Neue", serif;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 5)); /* Move by 5 items to create seamless loop */
+  }
+}
+
+/* Pause animation on hover */
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* Blur effect for project hover */
+.project-box {
+  transition: all 0.3s ease;
+}
+
+.project-box.blurred {
+  filter: blur(5px);
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.project-box.focused {
+  filter: blur(0) !important;
+  opacity: 1;
+  transform: scale(1.05);
+  z-index: 1000;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-box.focused .project-image img {
+  transform: scale(1.1);
 }
 
 
