@@ -397,6 +397,9 @@
       type();
     }
 
+    // Global flag to prevent re-animation
+    let experienceAnimationCompleted = false;
+
     // Scroll-triggered animation
     function handleScrollAnimations() {
       const experienceHeading = document.querySelector('.mk-heading-YIH');
@@ -404,11 +407,12 @@
       
       // Check if experience section is in view
       const experienceSection = document.querySelector('.mk-container');
-      if (experienceSection) {
+      if (experienceSection && !experienceAnimationCompleted) {
         const rect = experienceSection.getBoundingClientRect();
         const isInView = rect.top < window.innerHeight && rect.bottom > 0;
         
         if (isInView && !experienceSection.classList.contains('animated')) {
+          experienceAnimationCompleted = true;
           experienceSection.classList.add('animated');
           
           // First, show "Hey There!!!"
@@ -430,25 +434,25 @@
             experienceHeading.style.transition = 'opacity 0.5s ease-out';
             experienceHeading.style.opacity = '0';
             
-            // After fade out, show original content with letter animation
+            // After fade out, show original content with bounce animation
             setTimeout(() => {
               // Remove blinking effect
               experienceHeading.classList.remove('blinking-text');
               
-              // Animate the heading
+              // Show original content with bounce animation
               if (experienceHeading) {
-                typeWriter(experienceHeading, originalHeadingText, 30);
+                experienceHeading.textContent = originalHeadingText;
                 experienceHeading.style.opacity = '1';
-                experienceHeading.style.transition = 'opacity 0.3s ease-in';
+                experienceHeading.classList.add('bounce-in');
               }
               
-              // Animate paragraphs with delay
+              // Animate paragraphs with bounce effect and delay
               bioParagraphs.forEach((paragraph, index) => {
                 setTimeout(() => {
-                  typeWriter(paragraph, originalParagraphs[index], 20);
+                  paragraph.textContent = originalParagraphs[index];
                   paragraph.style.opacity = '1';
-                  paragraph.style.transition = 'opacity 0.3s ease-in';
-                }, 1000 + (index * 500)); // Delay each paragraph
+                  paragraph.classList.add('bounce-in');
+                }, 800 + (index * 400)); // Delay each paragraph
               });
             }, 500); // Wait for fade out to complete
           }, 1500); // Show "Hey There!!!" for 1.5 seconds
