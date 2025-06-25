@@ -490,6 +490,10 @@ footer .text-body-secondary {
   object-fit: cover;
   object-position: center;
   display: block;
+  border: 16px solid #7b0cfb;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5rem 2rem -1rem rgba(0,0,0,0.15);
+  border-radius: 24px;
+  /* Softens the cutoff and adds a subtle border */
 }
 
 h1 {
@@ -675,52 +679,62 @@ h1 {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   backdrop-filter: blur(10px);
+  display: none;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
+.moving-pane-container.active {
+  display: block !important;
+}
 .image-carousel {
   display: none;
-  width: 100%;
   height: 100%;
   overflow: hidden;
 }
-
 .image-carousel.active {
-  display: block;
+  display: block !important;
 }
-
 .carousel-track {
   display: flex;
-  width: calc(200px * 10); /* More items for continuous flow */
-  animation: marquee-scroll 15s linear infinite;
+  animation: marquee-scroll 20s linear infinite;
+  width: calc(200px * 10); /* 5 items + 5 duplicates */
+  min-height: 200px;
 }
-
+.image-carousel.active .carousel-track {
+  animation: marquee-scroll 20s linear infinite;
+}
+.image-carousel:not(.active) .carousel-track {
+  animation: none;
+}
 .carousel-item {
   flex: 0 0 200px;
   margin: 20px 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   padding: 15px;
   text-align: center;
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
 .carousel-item img {
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .item-content h4 {
   color: #fff;
   font-size: 1rem;
   margin: 0;
   font-family: "Bebas Neue", serif;
 }
-
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0);
@@ -729,23 +743,19 @@ h1 {
     transform: translateX(calc(-200px * 5)); /* Move by 5 items to create seamless loop */
   }
 }
-
 /* Pause animation on hover */
 .carousel-track:hover {
   animation-play-state: paused;
 }
-
 /* Blur effect for project hover */
 .project-box {
   transition: all 0.3s ease;
 }
-
 .project-box.blurred {
   filter: blur(5px);
   opacity: 0.7;
   transform: scale(0.95);
 }
-
 .project-box.focused {
   filter: blur(0) !important;
   opacity: 1;
@@ -754,20 +764,16 @@ h1 {
   position: relative;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
-
 .project-box.focused .project-image img {
   transform: scale(1.1);
 }
-
 /* Experience section positioning */
 .mk-container {
   /* Keep original positioning */
 }
-
 .mk-heading-YIH {
   /* Keep original positioning */
 }
-
 .bio {
   display: grid;
   grid-column-start: 2;
@@ -776,13 +782,11 @@ h1 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .par1 {
   width: 80%;
   text-align: right;
   font-size: 24px;
 }
-
 /* Bounce-in animation */
 @keyframes bounceIn {
   0% {
@@ -801,10 +805,239 @@ h1 {
     transform: scale(1) translateY(0);
   }
 }
-
 .bounce-in {
   animation: bounceIn 0.8s ease-out forwards;
   opacity: 0;
+}
+/* --- HERO OVERLAY TEXT ANIMATIONS --- */
+.hero-overlay-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+  font-family: 'Bebas Neue', serif;
+  /* text-shadow removed, no glow */
+}
+#typewriter-text {
+  font-size: 40vw;
+  min-height: 28vw;
+  letter-spacing: 4px;
+  display: block;
+  font-weight: bold;
+  width: 100vw;
+  max-width: 100vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: none !important;
+}
+#changing-text {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+  display: block;
+  min-height: 3rem;
+  font-family: 'Bebas Neue', serif;
+  opacity: 0;
+  transition: color 0.5s;
+  text-shadow: none !important;
+}
+@media (max-width: 768px) {
+  #typewriter-text {
+    font-size: 6.4rem;
+    min-height: 7rem;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+#hero-action-box {
+  display: inline-block;
+  margin-top: 2rem;
+  margin-left: -2rem;
+  padding: 0.75rem 2.5rem;
+  background: #111;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Bebas Neue', serif;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  letter-spacing: 1px;
+  font-weight: 600;
+  min-width: 200px;
+  text-align: center;
+}
+#hero-action-box:hover {
+  background: #222;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+}
+#resume-button {
+  display: inline-block;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  padding: 0.75rem 2.5rem;
+  background: linear-gradient(90deg, #7b0cfb 0%, #4ecdc4 100%);
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Bebas Neue', serif;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  letter-spacing: 1px;
+  font-weight: 600;
+  min-width: 200px;
+  text-align: center;
+}
+#resume-button:hover {
+  background: linear-gradient(90deg, #4ecdc4 0%, #7b0cfb 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+}
+/* Contact Section Styles */
+.contact-section {
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 3rem;
+  font-family: "Bebas Neue", serif;
+}
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-form h3,
+.social-links h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-family: "Bebas Neue", serif;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+  transition: border-color 0.3s;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #7b0cfb;
+}
+.contact-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #7b0cfb 0%, #4ecdc4 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-family: "Bebas Neue", serif;
+}
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(123, 12, 251, 0.3);
+}
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-decoration: none;
+}
+.social-btn.linkedin:hover {
+  border-color: #0077b5;
+  background: rgba(0, 119, 181, 0.2);
+}
+.social-btn.github:hover {
+  border-color: #333;
+  background: rgba(51, 51, 51, 0.2);
+}
+.social-btn i {
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-heading {
+    font-size: 2.5rem;
+  }
 }
 
 
