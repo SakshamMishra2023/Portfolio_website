@@ -307,8 +307,8 @@
           <h3>Send me a message</h3>
           <form id="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="user_email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="title" placeholder="Subject" required>
             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
             <button type="submit" class="contact-btn">Send Message</button>
           </form>
@@ -706,12 +706,12 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-      emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+      emailjs.init("SVdAn2-oFbiwgZUGq");
     })();
 
-    // Contact form submission
     document.addEventListener('DOMContentLoaded', function() {
       const contactForm = document.getElementById('contact-form');
+      if (contactForm) contactForm.reset();
       
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -725,35 +725,26 @@
         
         // Get form data
         const formData = {
-          user_email: contactForm.querySelector('input[name="user_email"]').value,
-          subject: contactForm.querySelector('input[name="subject"]').value,
+          title: contactForm.querySelector('input[name="title"]').value,
+          name: contactForm.querySelector('input[name="name"]').value,
+          time: new Date().toLocaleString(),
           message: contactForm.querySelector('textarea[name="message"]').value,
-          from_name: 'Portfolio Contact',
-          to_name: 'Saksham Mishra'
+          email: contactForm.querySelector('input[name="email"]').value
         };
         
-        // Send email using EmailJS
-        emailjs.send('service_p10gzri', 'YOUR_TEMPLATE_ID', formData)
+        emailjs.send('service_p10gzri', 'template_0yuqguu', formData)
           .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
             submitBtn.textContent = 'Message Sent!';
             submitBtn.style.background = 'linear-gradient(90deg, #4ecdc4 0%, #44a08d 100%)';
-            
-            // Reset form
             contactForm.reset();
-            
-            // Reset button after 3 seconds
             setTimeout(() => {
               submitBtn.textContent = originalText;
               submitBtn.style.background = 'linear-gradient(90deg, #7b0cfb 0%, #4ecdc4 100%)';
               submitBtn.disabled = false;
             }, 3000);
           }, function(error) {
-            console.log('FAILED...', error);
             submitBtn.textContent = 'Failed to send';
             submitBtn.style.background = 'linear-gradient(90deg, #ff6b6b 0%, #ee5a52 100%)';
-            
-            // Reset button after 3 seconds
             setTimeout(() => {
               submitBtn.textContent = originalText;
               submitBtn.style.background = 'linear-gradient(90deg, #7b0cfb 0%, #4ecdc4 100%)';
@@ -762,6 +753,13 @@
           });
       });
     });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) contactForm.reset();
+  });
   </script>
 </body>
 </html>
