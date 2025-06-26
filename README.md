@@ -12,7 +12,6 @@ A dynamic, interactive portfolio website showcasing skills, projects, and experi
 - **Interactive Dashboard**: Floating navigation panel with smooth navigation
 - **Skills Showcase**: Interactive hardware/software skill carousel with marquee effects
 - **Project Gallery**: Hover effects with focus/blur animations
-- **Responsive Design**: Mobile-friendly layout with adaptive components
 
 ### Visual Design
 - **Custom Cursor**: Custom cursor design for enhanced UX
