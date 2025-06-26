@@ -120,22 +120,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 
-    inset var(--itemWidthMinus) var(--itemWidthMinus) 0 black, 
-    inset var(--itemWidth) var(--itemWidthMinus) 0 green, 
-    inset var(--itemWidthMinus) var(--itemWidth) 0 blue, 
-    inset var(--itemWidth) var(--itemWidth) 0 yellow, 
-    0 0 20px silver;
-  transition: box-shadow ease-in-out .6s, color ease-in-out .5s;
-  width: var(--itemWidth);
-  height: var(--itemWidth);
-  border-radius: 50%;
-  background: center/50%  no-repeat;
-  cursor: pointer;
-  color: white;
+	box-shadow: 
+		inset var(--itemWidthMinus) var(--itemWidthMinus) 0 black, 
+		inset var(--itemWidth) var(--itemWidthMinus) 0 green, 
+		inset var(--itemWidthMinus) var(--itemWidth) 0 blue, 
+		inset var(--itemWidth) var(--itemWidth) 0 yellow, 
+		0 0 20px silver;
+	transition: box-shadow ease-in-out .6s, color ease-in-out .5s;	
+	width: var(--itemWidth);
+	height: var(--itemWidth);
+	border-radius: 50%;
+	background: center/50%  no-repeat;
+	cursor: pointer;
+	color: white;
   text-align: center;
   font-size: 2.8rem;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Pacifico', cursive;
 }
 
 .item:hover{
@@ -502,18 +502,16 @@ footer .text-body-secondary {
   object-fit: cover;
   object-position: center;
   display: block;
-  border: 16px solid #7b0cfb;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25), 0 1.5rem 2rem -1rem rgba(0,0,0,0.15);
   border-radius: 24px;
   /* Softens the cutoff and adds a subtle border */
 }
-
-h1 {
-  font-family: "Bebas Neue", serif;
-  font-weight: 400;
-  font-style: normal;
-  color: aliceblue;
+/* Remove VHS/glitch effect and border */
+.hero-image::before,
+.hero-image::after {
+  content: none !important;
+  display: none !important;
 }
+@keyframes vhs-glitch {}
 
 /* Projects Section Styles */
 .projects-section {
@@ -832,30 +830,23 @@ h1 {
   width: 100%;
   z-index: 2;
   font-family: 'Bebas Neue', serif;
-  /* text-shadow removed, no glow */
+  text-shadow: 0 2px 8px #000, 0 0 10px #7b0cfb;
 }
 #typewriter-text {
-  font-size: 40vw;
-  min-height: 28vw;
-  letter-spacing: 4px;
+  font-size: 5rem;
+  letter-spacing: 2px;
   display: block;
+  min-height: 5.5rem;
   font-weight: bold;
-  width: 100vw;
-  max-width: 100vw;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow: none !important;
 }
 #changing-text {
   font-size: 1.8rem;
   margin-top: 1.5rem;
   display: block;
   min-height: 2.2rem;
+  color: #4ecdc4;
   font-family: 'Bebas Neue', serif;
   opacity: 0;
-  transition: color 0.5s;
-  text-shadow: none !important;
   letter-spacing: 0.5px;
   font-weight: 500;
 }
@@ -929,11 +920,13 @@ h1 {
   font-weight: 600;
   min-width: 200px;
   text-align: center;
+  text-decoration: none;
 }
 #resume-button:hover {
   background: linear-gradient(90deg, #4ecdc4 0%, #7b0cfb 100%);
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  text-decoration: none;
 }
 /* Contact Section Styles */
 .contact-section {
@@ -1242,6 +1235,49 @@ footer .nav-link[href*="linkedin"]:hover {
 }
 .dashboard-close:hover {
   color: #ff6b6b;
+}
+
+.exp-anim {
+  opacity: 0;
+}
+
+.exp-fade {
+  transition: opacity 1s;
+}
+.exp-fade.visible {
+  opacity: 1 !important;
+}
+
+@keyframes expPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.exp-pop-in {
+  animation: expPopIn 0.7s cubic-bezier(0.23, 1.02, 0.36, 1) both;
+}
+
+.project-link {
+  text-decoration: none;
+}
+
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: #000000;
 }
 
 
