@@ -9,14 +9,12 @@ A dynamic, interactive portfolio website showcasing skills, projects, and experi
 ### Interactive Elements
 - **Animated Entry**: VHS distortion effect with door opening animation
 - **Dynamic Background**: Vanta.js animated network background
-- **Typewriter Effects**: Animated text typing for hero section and experience
-- **Interactive Dashboard**: Floating navigation panel with smooth transitions
+- **Interactive Dashboard**: Floating navigation panel with smooth navigation
 - **Skills Showcase**: Interactive hardware/software skill carousel with marquee effects
 - **Project Gallery**: Hover effects with focus/blur animations
 - **Responsive Design**: Mobile-friendly layout with adaptive components
 
 ### Visual Design
-- **Gradient Background**: Animated gradient with smooth color transitions
 - **Custom Cursor**: Custom cursor design for enhanced UX
 - **Modern Typography**: Multiple Google Fonts (Bebas Neue, Orbitron, Pacifico)
 - **Smooth Animations**: CSS animations and transitions throughout
