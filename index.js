@@ -1,6 +1,4 @@
-// Hide all content initially and show door animation first
 document.addEventListener('DOMContentLoaded', function() {
-  // Hide all body content except the door animation
   const bodyContent = document.body.children;
   for (let i = 0; i < bodyContent.length; i++) {
     if (bodyContent[i].tagName !== 'SCRIPT') {
@@ -8,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Create full-screen door animation
   const doorOverlay = document.createElement('div');
   doorOverlay.style.cssText = `
     position: fixed;
@@ -23,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     align-items: center;
   `;
   const doorGif = document.createElement('img');
-  doorGif.src = './assets/Opening_door.gif';
+  doorGif.src = './assets/vhs_distortion.gif';
   doorGif.style.cssText = `
     width: 100%;
     height: 100%;
@@ -33,10 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   doorOverlay.appendChild(doorGif);
   document.body.appendChild(doorOverlay);
   
-  // Wait for GIF to load and play for 3 seconds
   doorGif.onload = function() {
     setTimeout(function() {
-      // Fade out the door animation
       doorOverlay.style.transition = 'opacity 1s ease-out';
       doorOverlay.style.opacity = '0';
       // Show all content after door animation fades out
@@ -72,19 +67,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         typeWriter();
       }, 1000);
-    }, 3000); // 3 seconds for the door animation
+    }, 3000);
   };
 });
 
-// Separate function for page animations that run after door animation
 function runPageAnimations() {
   console.log('Running page animations...');
   
-  // Initialize Vanta.js background after content is visible
   setTimeout(() => {
     console.log('Initializing Vanta.js background...');
     
-    // Check if VANTA.NET is available
     if (typeof VANTA !== 'undefined' && VANTA.NET) {
       VANTA.NET({
         el: "#vanta-bg",
@@ -118,15 +110,6 @@ function runPageAnimations() {
       console.error('VANTA.NET library not available');
     }
   }, 100);
-  
-  // Add your animation code here
-  // Example: fade in elements, particle effects, etc.
-  
-  // You can add more animation logic here
-  // - Particle systems
-  // - Text animations
-  // - Background effects
-  // - Character selection animations
 }
 
 // Letter-by-letter animation function
@@ -170,7 +153,7 @@ function handleScrollAnimations() {
       bioParagraphs.forEach((paragraph, index) => {
         setTimeout(() => {
           paragraph.classList.add('bounce-in');
-        }, 800 + (index * 400)); // Delay each paragraph
+        }, 800 + (index * 400));
       });
     }
   }
@@ -302,7 +285,7 @@ window.addEventListener('scroll', function() {
         heading.classList.add('exp-pop-in');
         setTimeout(() => {
           paragraphs.forEach((p, idx) => setTimeout(() => p.classList.add('visible'), 400 * idx));
-        }, 700); // Wait for pop-in to finish
+        }, 700);
       });
     }
   }
