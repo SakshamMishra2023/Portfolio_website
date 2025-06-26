@@ -1,5 +1,7 @@
 # Saksham Mishra - Portfolio Website
 
+![Portfolio Screenshot](Screenshot%202025-06-26%20231829.png)
+
 A dynamic, interactive portfolio website showcasing skills, projects, and experience in both hardware and software development. Built with modern web technologies and featuring engaging animations and user interactions.
 
 ## 🌟 Features
